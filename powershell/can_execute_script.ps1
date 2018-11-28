@@ -3,7 +3,7 @@
 
 Set-ExecutionPolicy RemoteSigned -Scope Process
 
-# 実行ポリシー
+# スコープ
 #
 # Scope            ExecutionPolicy
 # -----            ---------------
@@ -13,8 +13,11 @@ Set-ExecutionPolicy RemoteSigned -Scope Process
 # CurrentUser      Undefined
 # LocalMachine     Undefined
 
-# スコープ
+# ポリシー
 #
-# Process: The execution policy affects only the current PowerShell
-# CurrentUser: The execution policy affects only the current user.
-# LocalMachine: The execution policy affects all users of the computer.
+# Restricted. Does not load configuration files or run scripts. Restricted is the default execution policy.
+# AllSigned. Requires that all scripts and configuration files be signed by a trusted publisher, including scripts that you write on the local computer.
+# RemoteSigned. Requires that all scripts and configuration files downloaded from the Internet be signed by a trusted publisher.
+# Unrestricted. Loads all configuration files and runs all scripts. If you run an unsigned script that was downloaded from the Internet, you are prompted for permission before it runs.
+# Bypass. Nothing is blocked and there are no warnings or prompts.
+# Undefined. Removes the currently assigned execution policy from the current scope. This parameter will not remove an execution policy that is set in a Group Policy scope.
