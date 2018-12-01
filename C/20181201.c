@@ -1,5 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "stdio.h"
+#include "stdlib.h"
+#include "20181201.h"
 
 void swap(int* x, int* y) {
     int tmp = *x;
@@ -162,6 +163,17 @@ int main(void) {
     char buf[100];
     fgets(buf, 10, stdin);
     printf("%s", buf);
+
+    static const char* const readonly = "abcde";
+    readonly = "vwxyz";
+
+    int x = 100;
+    printf("%d", x);
+
+    enum Color cl;
+    cl = RED;
+    printf("%d", cl);
+
 
     return 0;
 
