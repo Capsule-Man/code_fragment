@@ -2,7 +2,6 @@
 
 int main(int argc, char const *argv[])
 {
-
     // コンパイルエラー
     int const x = 100;
     x = 200;
@@ -39,6 +38,16 @@ int main(int argc, char const *argv[])
     printf("%d", x);
     (*(int*)&x) = 100;
     printf("%d", x);
+
+    // コンパイル通る
+    const char* str = "abc";
+    // char const* str = "abc";
+    str = "def";
+
+    // コンパイルエラー
+    char* const str = "abc";
+    str = "def";
+    printf("%s", str);
 
     return 0;
 }
