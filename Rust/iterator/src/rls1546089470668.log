@@ -2694,3 +2694,4 @@ ERROR 2018-12-29T15:27:40Z: rls::actions: failed to fetch project model, using f
 ERROR 2018-12-29T15:27:56Z: rls::actions: failed to fetch project model, using fallback: failed to read `/home/oishouya/code_fragment/Rust/programming_rust/src/Cargo.toml`
 ERROR 2018-12-29T15:28:00Z: rls::actions: failed to fetch project model, using fallback: failed to read `/home/oishouya/code_fragment/Rust/programming_rust/src/Cargo.toml`
 ERROR 2018-12-29T15:29:10Z: rls::actions: failed to fetch project model, using fallback: failed to read `/home/oishouya/code_fragment/Rust/programming_rust/src/Cargo.toml`
+ERROR 2018-12-29T15:30:36Z: rls::actions::hover: racer_def: skipping non-existant file: "/home/oishouya/code_fragment/Rust/programming_rust/src/main.rs"
