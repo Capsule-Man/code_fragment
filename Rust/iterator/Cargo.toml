@@ -1,6 +1,0 @@
-[package]
-name = "programming_rust"
-version = "0.1.0"
-authors = ["Capsule-Man <shyalone_555@yahoo.co.jp>"]
-
-[dependencies]

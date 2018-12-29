@@ -1,7 +1,6 @@
 # seq = range(0, 84, 30)
 # print(list(seq))
 # ☓ [0, 30, 60] ◯ [0, 30, 60, 84]
-import
 
 a = list(range(0, 84, 30)) + [84]
 
@@ -17,7 +16,6 @@ while True:
     else:
         x += 30
 
-print(a)
 print(a)
 print(b)
 print(c)

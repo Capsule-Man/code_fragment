@@ -2,4 +2,3 @@
 /.gitignore
 /concat_list*
 /*.o
-/tmp.c
