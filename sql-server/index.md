@@ -12,7 +12,7 @@
 - [集計した際に、GROUP BYでは指定していないカラムも見たい時](./sql/other_col_agg.sql) 
 - [JOINの再確認（再帰CTEによる数列も）](./sql/join_first.sql)
 - [JOINの整理](./sql/join_second.sql)
-- [累積和などの移動集計](./sql/move_agg.sql)
+- [移動集計](./sql/move_agg.sql)
 - [count関数の引数の中でcase式を書く](./sql/move_agg.sql)
 - [count関数の引数を*にするか列名にするかでNULLをカウントするかが変わる](./sql/move_agg.sql)
 
