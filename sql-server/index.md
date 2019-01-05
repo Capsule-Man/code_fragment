@@ -24,4 +24,6 @@
 - [処理に要した時間を計測する](./sql/calc-execution-time.sql)
 - [プロセスの一覧を取得する](./sql/process_list.sql)
 - [実行中のクエリを表示する](./sql/show_query_working.sql)
+- [データベース内で指定したカラムを検索する](./sql/search_column_in_db.sql)
+- [カーソルの基本](./sql/cursor_base.sql)
 
