@@ -1,19 +1,19 @@
 USE ITEM30EXAMPLE
 GO
 
--- SELECT Color, Dimension, SUM(Quantity)
--- FROM Inventory
--- GROUP BY Color, Dimension
--- HAVING Color = 'Red'
+SELECT Color, Dimension, SUM(Quantity)
+FROM Inventory
+GROUP BY Color, Dimension
+HAVING Color = 'Red'
 
 /*
 Red	L	10
 Red	M	15
 */
 
--- SELECT Color, Dimension, SUM(Quantity) 
--- FROM Inventory
--- GROUP BY ROLLUP(Color, Dimension)
+SELECT Color, Dimension, SUM(Quantity) 
+FROM Inventory
+GROUP BY ROLLUP(Color, Dimension)
 
 /*
 Blue	L	5
@@ -25,9 +25,9 @@ Red	    NULL	25
 NULL	NULL	50
 */
 
--- SELECT Color, Dimension, SUM(Quantity) 
--- FROM Inventory
--- GROUP BY CUBE(Color, Dimension)
+SELECT Color, Dimension, SUM(Quantity) 
+FROM Inventory
+GROUP BY CUBE(Color, Dimension)
 
 /*
 Blue	L	5
@@ -46,6 +46,7 @@ Red	    NULL	25
 UNION ALLではSELECTでの指定が面倒だから、GROUPING SETSの方がラク
 */
 
+-- FIRST
 SELECT Color, Dimension, SUM(Quantity) 
 FROM Inventory
 GROUP BY GROUPING SETS
@@ -55,6 +56,7 @@ GROUP BY GROUPING SETS
     (Color, Dimension)
  )
 
+-- SECOND
 SELECT Color, NULL AS Dimension, SUM(Quantity) AS QSUM
 FROM Inventory
 GROUP BY Color
