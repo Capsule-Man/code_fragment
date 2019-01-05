@@ -10,11 +10,13 @@
 - [集約(ROLLUP / CUBE / GROUPING SETS)](./sql/basic_agg.sql)
 - [HAVING内でカテゴリごとの平均値を計算し、全体の平均より高いものを抽出](./sql/calc_in_having.sql)
 - [集計した際に、GROUP BYでは指定していないカラムも見たい時](./sql/other_col_agg.sql) 
-- [JOINの再確認（再帰CTEによる数列も）](./sql/join_first.sql)
-- [JOINの整理](./sql/join_second.sql)
-- [移動集計](./sql/move_agg.sql)
 - [count関数の引数の中でcase式を書く](./sql/move_agg.sql)
 - [count関数の引数を*にするか列名にするかでNULLをカウントするかが変わる](./sql/move_agg.sql)
+- [移動集計](./sql/move_agg.sql)
+
+# 結合
+- [JOINの再確認（再帰CTEによる数列も）](./sql/join_first.sql)
+- [JOINの整理](./sql/join_second.sql)
 
 # その他
 
