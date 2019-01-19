@@ -1,6 +1,7 @@
--- 月末時点で直近の決算とか引っ張ってくるヤシ
+-- 毎月末時点の直近の決算とか引っ張ってくる
 
--- 相関サブクエリ
+-- 相関サブクエリ 
+-- WEBで遅い遅いと書かれているが、結局これが早いっぽい
 
 SELECT *
 FROM STOCK_PRICE_M SPM
@@ -13,6 +14,7 @@ AND ATR.FTERM = (
     )
 
 -- LEFT JOIN
+-- SORTが無いので、早いと思ったがそうでもなかった
 
 SELECT SPM.CODE,
  SPM.TRADING_DATE,
@@ -30,3 +32,16 @@ ON a.CODE = b.CODE
 AND a.TRADING_DATE = b.TRADING_DATE
 AND a.FTERM < b.FTERM
 WHERE b.FTERM IS NULL
+
+-- ROW_NUMBER使う
+-- SORTがある分遅いのか?
+
+SELECT *,
+       ROW_NUMBER() OVER(PARTITION BY SPM.CODE, SPM.TRADING_DATE ORDER BY ATR.FTERM DESC) AS NUM
+INTO #TMP
+FROM STOCK_PRICE_M SPM
+LEFT JOIN STOCK_ATTR_ACCOUNT ATR
+ON SPM.CODE = ATR.CODE
+AND SPM.TRADING_DATE >= ATR.FTERM
+
+SELECT * FROM #TMP WHERE NUM = 1
