@@ -17,6 +17,7 @@
 # 結合
 - [JOINの再確認（再帰CTEによる数列も）](./sql/join_first.sql)
 - [JOINの整理](./sql/join_second.sql)
+- [結合がなのか、それともサブクエリなのか](./sql/cor_subquery.sql)
 
 # その他
 
