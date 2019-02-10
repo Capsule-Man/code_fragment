@@ -1,14 +1,14 @@
 use std::str::FromStr;
 use std::collections::{HashSet, BTreeSet, LinkedList, HashMap};
 
-fn try_loop_vector(){
+fn loop_vector(){
     let horses = vec!["OmegaPerfume", "GoldDream", "KTBrave"];
     for item in &horses {
         println!("{}", item);
     }
 }
 
-fn try_read_lines(){
+fn read_lines(){
     let text = "OmegaPerfume\nGoldDream\nKTBrave";
     let v: Vec<&str> = text.lines()
     .map(str::trim)
@@ -21,7 +21,7 @@ fn try_read_lines(){
     }
 }
 
-fn try_filter_map(){
+fn filter_map(){
     let text = "OmegaPerfume 1 GoldDream 2 KTBrave 3";
     for item in text.split_whitespace()
                     .filter_map(|w| f64::from_str(w).ok()) {
@@ -29,7 +29,7 @@ fn try_filter_map(){
     }
 } 
 
-fn try_flat_map(){
+fn flat_map(){
     let horses = ["OmegaPerfume", "GoldDream"];
     let mut horse_attrs = HashMap::new();
     horse_attrs.insert("OmegaPerfume", vec!["3", "yasuda", "shadai"]);
@@ -41,7 +41,7 @@ fn try_flat_map(){
     }
 }
 
-fn try_take(){
+fn take(){
     let text = "OmegaPerfume\n1\nGoldDream\n2\nKTBrave\n3\n";
     for item in text.lines().take(4) {
         println!("{}", item);
@@ -51,14 +51,14 @@ fn try_take(){
     }
 }
 
-fn try_rev() {
+fn _rev() {
     let horses = ["OmegaPerfume", "GoldDream", "KTBrave"].iter().rev();
     for horse in horses {
         println!("{}", horse);
     }
 }
 
-fn try_zip(){
+fn _zip(){
     let horses = vec!["OmegaPerfume", "GoldDream", "KTBrave"];
     let v: Vec<_> = (1..4).zip(horses).collect();
     for tuple in v {
@@ -66,7 +66,7 @@ fn try_zip(){
     }
 }
 
-fn try_basic_method(){
+fn basic_method(){
     // let v: Vec<i32> = vec![1,2,3,4,5];
     let sum_value: i64 = [1,2,3,4,5].iter().sum();
     let product_value: i64 = [1,2,3,4,5].iter().product();
@@ -75,7 +75,7 @@ fn try_basic_method(){
     println!("{}", min_value);
 }
 
-fn try_fold(){
+fn fold(){
     let v = [1,2,3,4,5];
     let _sum: i32 = v.iter().fold(0, |n, i| n+i);
     let _product: i32 = v.iter().fold(1, |n, i| n*i);
@@ -83,9 +83,8 @@ fn try_fold(){
     println!("{}", _sub);
 }
 
-fn try_creation_collectiron(){
+fn create_collection(){
     let a: LinkedList<i32> = (0..5).collect();
-    // ?
     let b: HashSet<&&str> = ["a", "b", "c"].iter().collect();
     let c: HashMap<_, i32> = (0..5).zip(5..10).collect();
     for (x, y) in &c {
@@ -95,5 +94,4 @@ fn try_creation_collectiron(){
 
 
 fn main() {
-    try_creation_collectiron();
 }
