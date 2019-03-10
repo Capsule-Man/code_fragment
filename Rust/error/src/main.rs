@@ -47,20 +47,10 @@ fn propagate_err() -> Result<&'static str, &'static str>{
 
 /// 関数はエラーを想定した実装になっているが、
 /// エラーが起こりえないケース
+/// unwrapかexpectを使う
 fn process_impossible_error(number: &'static str) {
     let num = number.parse::<i32>().unwrap();
     println!("{}", num * 2);
-}
-
-/// 使いどころが分かっていないas_ref
-/// Result<T, E> を　Result<&T, &E>　に変換
-fn process_error_with_asref() {
-    let result = get_weather();
-    let result_ref = result.as_ref();
-    match result_ref {
-        Ok(report) => println!("{}", report),
-        Err(error) => println!("{}", error)
-    }
 }
 
 /// エラーを表示する
@@ -83,14 +73,25 @@ fn print_error(mut err: &Error) {
         let _ = writeln!(stderr(), "cause by: {}", cause);
         err = cause;
     }
+}
 
+/// ？？？
+/// 使いどころが分かっていないas_ref
+/// Result<T, E> を　Result<&T, &E>　に変換
+fn process_error_with_asref() {
+    let result = get_weather();
+    let result_ref = result.as_ref();
+    match result_ref {
+        Ok(report) => println!("{}", report),
+        Err(error) => println!("{}", error)
+    }
 }
 
 /// ？？？
 /// 複数種類のエラーへの対応
 /// Box<std::error::Error>
 
-/// ???
+/// ？？？
 /// カスタムエラー型への対応
 
 /// main関数でのエラー処理
@@ -103,5 +104,5 @@ fn main_ () {
 }
 
 fn main() {
-    // const N: &'static str = "100";
+    const N: &'static str = "100";
 }
