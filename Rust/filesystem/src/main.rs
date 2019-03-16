@@ -1,7 +1,7 @@
 use std::io;
 use std::io::prelude::*;
 use std::fs::File;
-use std::fs::{canonicalize, metadata, read_dir};
+use std::fs;
 use std::path::PathBuf;
 use std::fs::DirBuilder;
 
@@ -10,11 +10,11 @@ fn create_dir(path: &str){
         .recursive(true)
         .create(path)
         .unwrap();
-    println!("{:#?}", metadata(path).unwrap());
+    println!("{:#?}", fs::metadata(path).unwrap());
 }
 
 fn display_entry(path: &str) {
-    if let Ok(entries) = read_dir(".") {
+    if let Ok(entries) = fs::read_dir(".") {
         for entry in entries {
             if let Ok(entry) = entry {
                 println!("{:?}\n{:?}", entry.path(), entry.file_type().unwrap());
@@ -37,7 +37,7 @@ fn chain_two_files() -> io::Result<()>{
 }
 
 fn get_absolute_path(path: &str) -> std::io::Result<PathBuf> {
-    let abs_path = canonicalize(path)?;
+    let abs_path = fs::canonicalize(path)?;
     Ok(abs_path)
 }
 
