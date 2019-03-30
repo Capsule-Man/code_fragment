@@ -20,6 +20,9 @@ void test2() {
 
 void test3() {
     vector<int> v = {1, 2, 3};
+    for_each(v.begin(), v.end(), [](int x) {
+        cout << x  << endl;
+    });
     for_each(v.cbegin(), v.cend(), [](int x) {
         cout << x  << endl;
     });
