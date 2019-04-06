@@ -3,18 +3,18 @@
 
 #include "Eigen/Dense"
 
-// #include <boost/accumulators/accumulators.hpp>
-// #include <boost/accumulators/statistics.hpp>
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics.hpp>
 
-// using namespace boost::accumulators;
+using namespace boost::accumulators;
 
-// void calc_with_boost_stats()
-// {
-//     std::vector<int> vec = {1, 2, 3};
-//     accumulator_set<double, stats<tag::min>> acc;
-//     acc = std::for_each(vec.begin(), vec.end(), acc);
-//     std::cout << extract::min(acc) << std::endl;
-// }
+void calc_with_boost_stats()
+{
+    std::vector<int> vec = {1, 2, 3};
+    accumulator_set<double, stats<tag::min>> acc;
+    acc = std::for_each(vec.begin(), vec.end(), acc);
+    std::cout << extract::min(acc) << std::endl;
+}
 
 void calc_with_eigen_first() {
 
