@@ -51,3 +51,21 @@ temp = iris %>% select(Species) %>% distinct() %>% mutate(id=row_number())
 inner_join(iris, temp)
 inner_join(iris, temp, c("Species" = "Species"))
 
+# filter if
+
+temp = 2
+iris %>% filter(Species == case_when(
+  temp == 0 ~ "setosa",
+  temp == 1 ~ "virginica",
+  temp == 2 ~ "versicolor")
+)
+
+# rename
+
+iris %>% rename(
+  A=Sepal.Length,
+  B=Petal.Length,
+  C=Sepal.Width,
+  D=Petal.Width
+) %>% head()
+
