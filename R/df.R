@@ -69,3 +69,19 @@ iris %>% rename(
   D=Petal.Width
 ) %>% head()
 
+# join bind
+tmp1 = iris %>% group_by(Species) %>% 
+                mutate(id = row_number()) %>% 
+                filter(Species == "setosa") %>% 
+                select(c("Species", "id", "Sepal.Length"))
+
+tmp2 = iris %>% group_by(Species) %>% 
+                mutate(id = row_number()) %>% 
+                filter(Species == "setosa") %>% 
+                select(c("Species", "id", "Petal.Length")) %>%
+                arrange(desc(id))
+
+inner_join(tmp1, tmp2, c("Species", "id"))
+bind_cols(tmp1, tmp2)
+bind_rows(tmp1, tmp2)
+
