@@ -12,6 +12,9 @@
           title="Advanced Filtering"
           @dragDialog="handleDrag"
         />
+        <el-button icon="el-icon-question" type="primary" @click.prevent.stop="guide">
+          Show Guide
+        </el-button>
       </el-row>
     </div>
 
@@ -51,6 +54,9 @@
 </template>
 
 <script>
+import Driver from 'driver.js'
+import 'driver.js/dist/driver.min.css'
+import steps from './steps'
 import elDragDialog from '@/directive/el-drag-dialog'
 
 export default {
@@ -58,6 +64,7 @@ export default {
   directives: { elDragDialog },
   data() {
     return {
+      driver: null,
       dialogTableVisible: false,
       rowData: {
         name: 'Toyota Motors',
@@ -70,17 +77,19 @@ export default {
       }
     }
   },
+  mounted() {
+    this.driver = new Driver()
+  },
   methods: {
+    guide() {
+      this.driver.defineSteps(steps)
+      this.driver.start()
+    },
     handleChange(val) {
       console.log(val)
     },
     handleDrag() {
       this.$refs.select.blur()
-    }
-  },
-  filters: {
-    adjustSim(similarity) {
-      return similarity * 5
     }
   }
 }
