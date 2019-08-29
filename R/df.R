@@ -86,3 +86,5 @@ bind_cols(tmp1, tmp2)
 bind_rows(tmp1, tmp2)
  
 # TEST
+
+iris %>% do(if(TRUE) head(.) else tail(.))
